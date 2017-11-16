@@ -1,13 +1,11 @@
-console.log("Hello");
 var requiredCredits = 40;
 var myCredits;
 var missingCredits;
 var calculateButton = document.getElementById("calculate");
-var inputField = document.getElementById("myCredits");
 var resultBox = document.getElementById("result");
 var generateButton = document.getElementById("generateBoxes");
-var numberOfBoxes = 0;
-
+var numberOfBoxes = 0 ;
+var someOfCredits = 0 ;
 init();
 
 function init() {
@@ -15,22 +13,24 @@ function init() {
     calculateButton.addEventListener("click", calculateCredits);
 }
 
-function createInputBox(elementId) {
+function createInputBox(elementID) {
     var inputContainerElement = document.getElementById("inputContainer");
 
     var inputElem = document.createElement("input");
-    inputElem.id = elementId;
+    inputElem.id = elementID;
 
     var labelElem = document.createElement("label");
-    var text = document.createTextNode("Credits");
+    var text = document.createTextNode("Credit");
     labelElem.appendChild(text);
     labelElem.appendChild(inputElem);
 
+
     inputContainerElement.appendChild(labelElem);
+
+
 }
 
-function createBoxes() {
-
+function createBoxes(numberOfBoxes) {
     for (var i = 1; i <= numberOfBoxes; i++) {
         console.log("input" + i);
         createInputBox("input" + i);
@@ -38,14 +38,20 @@ function createBoxes() {
 }
 
 function generate() {
-    numberOfBoxes = document.getElementById("numberOfBoxes").value;
-    createBoxes();
+     numberOfBoxes = document.getElementById("numberOfBoxes").value;
+    createBoxes(numberOfBoxes);
 }
-function calculateCredits() {
 
-    for (var i = 1; i <= numberOfBoxes; i++) {
+function calculateCredits() {
+    for (var i=1; i <= numberOfBoxes; i++) {
         var inputElemValue = document.getElementById("input" + i).value;
         console.log(inputElemValue);
-        sumOfCredits += parseInt(InputElemValue);
+        someOfCredits +=  parseInt(inputElemValue) ;
     }
+console.log(someOfCredits);
+
 }
+
+
+
+
